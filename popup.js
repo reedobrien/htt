@@ -7,7 +7,9 @@
 var autofillEnabled;
 
 $(document).ready(function() {
+  // Set autofill enabled
   chrome.privacy.services.autofillEnabled.get({}, setAutoFillEnabled);
+
 });
 
 
@@ -21,4 +23,3 @@ function setAutoFillEnabled(details){
     $("#autofill-enabled").html("AutoFill is not enabled");
   }
 }
-
