@@ -4,27 +4,17 @@
 
 // First Check if 
 
-var autofillEnabled
-
 chrome.privacy.services.autofillEnabled.get({}, function(details) {
   if (details.value) {
-    autofillEnabled=true;
-    console.log("It is enabled");  
+	$(document).ready(function() {
+		$("#autofill-enabled").html("AutoFill is enabled");
+	});	
   }
   else {
-    autofillEnabled=false;
-    console.log("It is NOT enabled");
+	$(document).ready(function() {
+		$("#autofill-enabled").html("AutoFill is not enabled");
+	});	
   }
 });
 
 
-$( document ).ready(function() {
-  console.log(autofillEnabled);
-  if (autofillEnabled===true) {
-      $("#autofill-enabled").html("AutoFill is enabled");
-    }
-  else
-  { 
-    $("#autofill-enabled").html("AutoFill is disabled");
-  }
-}); 
