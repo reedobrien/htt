@@ -40,9 +40,13 @@ $( document ).ready(function() {
     e.preventDefault();
 
     var forminfo = "";
+	
+	var autofilledColor = 'rgb(250, 255, 189)';
 
     $(this).find(':text').each(function() {
-	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).val() + "<br/>";
+	  var autofilled = $(this).css('backgroundColor');
+	  if(autofilled==autofilledColor)
+	    forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).val() + "<br/>";
       console.log($(this).attr('name'));
     });
 
