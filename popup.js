@@ -4,11 +4,15 @@
 
 // First Check if
 var autofillEnabled;
+var port = chrome.runtime.connect({name: "blacklightwave"});
 
 $(document).ready(function() {
   // Set autofill enabled
   chrome.privacy.services.autofillEnabled.get({}, setAutoFillEnabled);
 
+  chrome.runtime.sendMessage({method:'getOutput'}, function(response){
+    $('#output').text(response.title);
+});
 });
 
 
