@@ -1,0 +1,91 @@
+diff --git a/content.js b/content.js
+index 5c9cddc..52eea17 100644
+--- a/content.js
++++ b/content.js
+@@ -1,23 +1,56 @@
+ $( document ).ready(function() {
+ 
++  //$("form").append("<div id='dialog' title='dialog'/>");
++
++  /*
++    Write HTML string to page.
++   */
++  writeDialog = function(html, form) {
++    open = '<div style="background-color: white; border-style: solid; border-width: 10px; border-color: rgb(51, 0, 51) !important; background-position: initial initial !important; background-repeat: initial initial !important;">';
++    close = '</div>';
++    //$('body').prepend(open + html + close);
++
++    $('<div style="border-style: solid; border-width: 10px; border-color: rgb(51, 0, 51) !important; background-position: initial initial !important; background-repeat: initial initial !important"></div>').appendTo('body')
++      .html('<div><h6>Yes or No?</h6></div>')
++      .dialog({
++          modal: true, title: 'message', zIndex: 10000, autoOpen: true,
++          width: 'auto', resizable: false,
++          buttons: {
++              Yes: function () {
++                  $(this).dialog("close");
++                  formSubmit(form);
++              },
++              No: function () {
++                  console.log('no');
++                  $(this).dialog("close");
++              }
++          },
++          close: function (event, ui) {
++              $(this).remove();
++          }
++    });
++  }
++
++  formSubmit = function(form) {
++    form.submit();
++  }
++
+   $("form").submit(function (e) {
+-    e.preventDefault(); // disables form submit from continueing
++    // Disable form submit from continuing until dialog allows
++    e.preventDefault();
++
++    var forminfo = "";
+ 
+-	var forminfo = "";
+-	
+     $(this).find(':text').each(function() {
+-	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).attr("value") + "\n"; 
++	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).attr("value") + "\n";
+       console.log($(this).attr('name'));
+     });
+-	alert(forminfo);
+ 
+-    /*inputs = $(this, ':input');
+-    console.log(inputs.count);
+-        var values = {};
+-        inputs.each(function() {
+-          console.log($(this).val());
+-            values[this.name] = $(this).val();
+-        });*/
++    writeDialog(forminfo, this);
+ 
+   });
++
++
+ });
++
++
+diff --git a/manifest.json b/manifest.json
+index ac04b5b..0460c71 100644
+--- a/manifest.json
++++ b/manifest.json
+@@ -3,11 +3,11 @@
+ 
+ 	"name" : "Form Exposure",
+ 	"version": "0.1",
+-	
++
+  "content_scripts": [
+      {
+        	"matches": ["*://*/*"],
+-     	  "js": ["jquery.min.js", "content.js"]
++     	  "js": ["jquery-ui/jquery-1.9.1.js", "jquery-ui/jquery-ui-1.10.3.custom.min.js", "content.js"]
+      	}
+   	],
+ 	"permissions": [

@@ -9,7 +9,7 @@
  	"content_scripts": [
      {
        	"matches": ["*://*/*"],
-     	  "js": ["jquery.min.js", "content.js"]
+     	  "js": ["jquery-ui/jquery-1.9.1.js", "jquery-ui/jquery-ui-1.10.3.custom.min.js", "content.js"]
      	}
   	],
 	"permissions": [
