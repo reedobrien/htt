@@ -3,9 +3,16 @@
 
 	"name" : "Form Exposure",
 	"version": "0.1",
-	// "permissions": [
-	// "https://ghostery?/"
-	// ],
+	// "content_scripts": [
+	//     {
+ //      	"matches": ["https://ajax.googleapis.com/*"],
+ //    	  "js": ["jquery.min.js"]
+ //    	}
+ //  	],
+	"permissions": [
+	    "privacy"
+		// "https://ghostery?/"
+	],
 	"browser_action" : {
 		"default_icon": "logo.png",
 		"default_popup": "popup.html"
