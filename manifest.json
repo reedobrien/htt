@@ -3,12 +3,13 @@
 
 	"name" : "Form Exposure",
 	"version": "0.1",
-	 "content_scripts": [
-	     {
-      	"matches": ["*://*/*"],
-     	  "js": ["jquery.min.js", "forminfo.js"]
-    	}
-   	],
+	
+ "content_scripts": [
+     {
+       	"matches": ["*://*/*"],
+     	  "js": ["jquery.min.js", "content.js"]
+     	}
+  	],
 	"permissions": [
 	    "privacy"
 		// "https://ghostery?/"
