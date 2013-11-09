@@ -4,17 +4,21 @@
 
 // First Check if 
 
-chrome.privacy.services.autofillEnabled.get({}, function(details) {
-  if (details.value) {
-	$(document).ready(function() {
-		$("#autofill-enabled").html("AutoFill is enabled");
-	});	
-  }
-  else {
-	$(document).ready(function() {
-		$("#autofill-enabled").html("AutoFill is not enabled");
-	});	
-  }
+var autofillEnabled;
+
+$(document).ready(function() {
+  chrome.privacy.services.autofillEnabled.get({}, setAutoFillEnabled);
 });
 
+
+function setAutoFillEnabled(details){
+  if (details.value) {
+    autofillEnabled=true;
+    $("#autofill-enabled").html("AutoFill is enabled");
+  }
+  else {
+    autofillEnabled=false;
+    $("#autofill-enabled").html("AutoFill is not enabled");
+  }
+}
 
