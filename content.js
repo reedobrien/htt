@@ -6,7 +6,7 @@ $( document ).ready(function() {
 	var forminfo = "";
 	
     $(this).find(':text').each(function() {
-	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).attr("value") + "\n"; 
+	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).val() + "\n"; 
       console.log($(this).attr('name'));
     });
 	alert(forminfo);
