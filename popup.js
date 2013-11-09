@@ -7,12 +7,12 @@
 chrome.privacy.services.autofillEnabled.get({}, function(details) {
   if (details.value) {
 	$(document).ready(function() {
-	$("#autofill-enabled").html("AutoFill is enabled");
+		$("#autofill-enabled").html("AutoFill is enabled");
 	});	
   }
   else {
 	$(document).ready(function() {
-	$("#autofill-enabled").html("AutoFill is not enabled");
+		$("#autofill-enabled").html("AutoFill is not enabled");
 	});	
   }
 });
