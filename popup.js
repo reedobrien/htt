@@ -1,9 +1,8 @@
-// Copyright 2013 Reed O'Brien <reed@reedobrien.com>. 
-// All rights reserved. Use of this source code is governed by a 
+// Copyright 2013 Reed O'Brien <reed@reedobrien.com>.
+// All rights reserved. Use of this source code is governed by a
 // BSD-style license that can be found in the LICENSE file.
 
-// First Check if 
-
+// First Check if
 var autofillEnabled;
 
 $(document).ready(function() {
@@ -21,4 +20,3 @@ function setAutoFillEnabled(details){
     $("#autofill-enabled").html("AutoFill is not enabled");
   }
 }
-

@@ -3,12 +3,12 @@
 
 	"name" : "Form Exposure",
 	"version": "0.1",
-	// "content_scripts": [
-	//     {
- //      	"matches": ["https://ajax.googleapis.com/*"],
- //    	  "js": ["jquery.min.js"]
- //    	}
- //  	],
+ "content_scripts": [
+     {
+       	"matches": ["*://*/*"],
+     	  "js": ["jquery.min.js", "content.js"]
+     	}
+  	],
 	"permissions": [
 	    "privacy"
 		// "https://ghostery?/"
