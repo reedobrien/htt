@@ -42,7 +42,7 @@ $( document ).ready(function() {
     var forminfo = "";
 
     $(this).find(':text').each(function() {
-	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).val() + "\n";
+	  forminfo = forminfo.concat($(this).attr("name")) + ": " + $(this).val() + "<br/>";
       console.log($(this).attr('name'));
     });
 
